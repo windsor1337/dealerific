@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  car_id: 1
+  description: MyString
+  primary: false
+
+two:
+  car_id: 1
+  description: MyString
+  primary: false

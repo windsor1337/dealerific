@@ -1,0 +1,130 @@
+<p id="notice"><%= notice %></p>
+
+<% if @dealer.photo.exists? then %>
+	<%= image_tag @dealer.photo.url(:small) %>
+<% end %>
+
+<p>
+  <b>Name:</b>
+  <%= @dealer.name %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @dealer.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @dealer.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @dealer.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @dealer.state %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @dealer.zipcode %>
+</p>
+
+<p>
+  <b>Sales phone:</b>
+  <%= @dealer.sales_phone %>
+</p>
+
+<p>
+  <b>Service phone:</b>
+  <%= @dealer.service_phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @dealer.email %>
+</p>
+
+<p>
+  <b>Hours of operation:</b>
+  <%= @dealer.hours_of_operation %>
+</p>
+
+<p>
+  <b>Website url:</b>
+  <%= @dealer.website_url %>
+</p>
+
+<p>
+  <b>Mobile website url:</b>
+  <%= @dealer.mobile_website_url %>
+</p>
+
+<p>
+  <b>Facebook:</b>
+  <%= @dealer.facebook %>
+</p>
+
+<p>
+  <b>Twitter:</b>
+  <%= @dealer.twitter %>
+</p>
+
+<p>
+  <b>Logo url:</b>
+  <%= @dealer.logo_url %>
+</p>
+
+<h1>Listing cars</h1>
+
+<table>
+  <tr>
+    <th>Dealer</th>
+    <th>Reference code</th>
+    <th>Title</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Color</th>
+    <th>Transmission</th>
+    <th>Miles</th>
+    <th>List price</th>
+    <th>List date</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cars.each do |car| %>
+  <tr>
+    <td><%= car.dealer_id %></td>
+    <td><%= car.reference_code %></td>
+    <td><%= car.title %></td>
+    <td><%= car.make %></td>
+    <td><%= car.model %></td>
+    <td><%= car.year %></td>
+    <td><%= car.color %></td>
+    <td><%= car.transmission %></td>
+    <td><%= car.miles %></td>
+    <td><%= car.list_price %></td>
+    <td><%= car.list_date %></td>
+    <td><%= car.description %></td>
+    <td><%= link_to 'Show', car %></td>
+    <td><%= link_to 'Edit', edit_car_path(car) %></td>
+    <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to 'Add Car', new_car_path(dealer_id: @dealer) %>
+
+<%= link_to 'Edit', edit_dealer_path(@dealer) %> |
+<%= link_to 'Back', dealers_path %>

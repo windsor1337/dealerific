@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Car:</b>
+  <%= @asset.car.make %>
+</p>
+
+<p>
+<% if @asset.photo.exists? then %>
+	<%= image_tag @asset.photo.url(:small) %>
+<% end %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @asset.description %>
+</p>
+
+<p>
+  <b>Primary:</b>
+  <%= @asset.primary %>
+</p>
+
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', car_path(@asset.car) %>

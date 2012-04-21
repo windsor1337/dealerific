@@ -1,0 +1,425 @@
+/*-----------------------------------------------------------------------------------*/
+/*	Start Global CSS
+/*-----------------------------------------------------------------------------------*/
+
+body{
+	font-size:12px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight:normal;
+}
+
+.container{
+	width:960px;
+	margin:0px auto;
+}
+
+.clear{
+	clear:both;
+	height:0 !important;
+}
+
+h2{
+	font-family: 'Droid Sans', sans-serif;
+	font-size:xx-large;
+	font-weight:bold;
+	letter-spacing:-2px;
+}
+
+h3{
+	font-family: 'Oswald', sans-serif;
+	font-size:24px;
+	font-weight:normal;
+	margin:0 0 8px 0;
+}
+
+a{
+	outline:none;
+	color:#318A9F;
+	text-decoration:none;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Header CSS
+/*-----------------------------------------------------------------------------------*/
+
+#header{
+	background:#1E1E1E;
+	padding:11px 0px;
+	color:#fff;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:13px;
+}
+
+#header-right{
+	float:right;
+	margin:8px 0 0 0;
+}
+
+.facebook, .twitter{
+	color:#ffffff;
+	text-decoration:none;
+	height:18px;
+	line-height:18px;
+	padding:0 0 0 22px;
+}
+
+.facebook{
+	background:url(/assets/facebook.png) left center no-repeat;
+	margin:0 30px 0 0;
+}
+
+.twitter{
+	background:url(/assets/twitter.png) left center no-repeat;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Head Divider CSS
+/*-----------------------------------------------------------------------------------*/
+
+#head-break{
+	height:125px;
+	width:100%;
+	background:url(/assets/break_tile.png) top center repeat-x;
+	text-align:center;
+	margin:0 0 50px 0;
+}
+
+#head-break p, #subscribe p{
+	padding:30px 0 0 0;
+	margin:0px;
+	color:#CCC;
+	text-transform:uppercase;
+	letter-spacing:1px;
+	font-size:10px;
+}
+
+#head-break h1, #subscribe h1{
+	color:#fff;
+	font-size:24px;
+	font-weight:normal;
+	margin:0px;
+	padding:0px;
+	text-shadow: 1px 1px 0px #000000;
+	filter: dropshadow(color=#000000, offx=1, offy=1);
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Center Half Content CSS
+/*-----------------------------------------------------------------------------------*/
+
+#left, #right{
+	float:left;
+}
+
+#left{
+	width:500px;
+	height:487px;
+	overflow:hidden;
+	margin:0 40px 0 0;
+}
+
+#right{
+	width:420px;
+	overflow:hidden;
+	padding:10px 0 0 0;
+}
+
+#right p{
+	font-size:13px;
+	line-height:24px;
+}
+
+#right h2{
+	margin:0 0 5px 0;
+}
+
+#slides, #slides li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#slides{
+	margin:25px 0 0 18px;
+}
+
+#slides li{
+	display: none;
+}
+
+.appstore{
+	background:url(/assets/appstore.png) top center no-repeat;
+	width:420px;
+	height:78px;
+	text-indent:-9999px;
+	display:block;
+	margin:20px 0px;
+}
+
+.appstore:hover{
+	background-position:bottom center;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Subscribe Area
+/*-----------------------------------------------------------------------------------*/
+
+#subscribe{
+	height:125px;
+	width:100%;
+	background:url(/assets/break_tile.png) bottom center repeat-x;
+	margin:0 0 50px 0;
+	color:#fff;
+	text-align:center;
+	display:none;
+}
+
+#subscribe #close{
+	float:right;
+	margin:20px 20px 0 0;
+	cursor:pointer;
+}
+
+#subscribe h2{
+	font-size:22px;
+	font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-weight:normal;
+	padding:5px 0 0 0;
+}
+
+#subscribe p{
+	padding:10px 0 0 0;
+}
+
+#footer-subscribe{
+	background: url('assets/subscribe_bg.png') no-repeat scroll 0 0 transparent;
+	width:311px;
+	height:35px;
+	margin:10px 0 0 325px;
+}
+
+#footer-subscribe #email{
+    background:none repeat scroll 0 0 transparent;
+    border:none;
+    font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+    font-size: 12px;
+    height: 25px;
+    line-height: 2.4em;
+    padding: 5px 0 5px 10px;
+    width: 245px;
+	color:#fff;
+}
+
+#footer-subscribe #email-submit{
+    background:none repeat scroll 0 0 transparent;
+    border:none;
+    cursor:pointer;
+    display:block;
+    float:right;
+    font-size:0;
+    height:35px;
+    line-height:0;
+    text-indent:-9999px;
+    width:50px;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Image Lightbox Tiles CSS
+/*-----------------------------------------------------------------------------------*/
+
+#image-tiles{
+	background:none repeat scroll 0 0 #F5F5F5;
+	border-top:1px solid #CCC;
+	border-bottom:1px solid #CCC;
+	padding:20px 0px 17px 0;
+	margin:40px 0 0 0;
+}
+
+#image-tiles img{
+	margin:0 126px 0 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	border:1px solid #CFCFCF;
+	padding:8px;
+	cursor:pointer;
+}
+
+#image-tiles img:hover{
+	background:#DFDFDF;
+	border:1px solid #cccccc;
+}
+
+#image-tiles img.last{
+	margin:0px!important;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Sub Tiles CSS
+/*-----------------------------------------------------------------------------------*/
+
+#sub-tiles{
+	background:none repeat scroll 0 0 #F5F5F5;
+	border-bottom:1px solid #CCC;
+}
+
+#sub-left, #sub-right{
+	float:left;
+	width:478px;
+}
+
+#sub-right{
+	background:url(/assets/macbook.png) left center no-repeat;
+	border-left:1px solid #ccc;
+}
+
+.sub-inner{
+	padding:40px 40px 40px 0px;
+}
+
+.sub-inner-right{
+	padding:40px 0px 40px 150px;
+}
+
+#sub-tiles p{
+	line-height:22px;
+	font-size:13px;
+	color:#5F5F5F;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Feature Tiles CSS
+/*-----------------------------------------------------------------------------------*/
+
+#feature-tiles{
+	margin:20px 0px;
+}
+
+.feature{
+	float:left;
+	width:278px;
+}
+
+.feature.left{
+	padding:30px 25px 30px 0px;
+}
+
+.feature.border{
+	border-right:1px solid #ccc;
+	border-left:1px solid #ccc;
+	padding:30px 25px;
+}
+
+.feature.last{
+	margin:0px !important;
+	padding:30px 0px 30px 25px;
+}
+
+.feature h4{
+	font-family: 'Droid Sans', sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	height:24px;
+	line-height:23px;
+	padding:0 0 0 33px;
+	margin:0 0 12px 0;
+	color:#63676C;
+}
+
+.feature p{
+	font-size:13px;
+	line-height:22px;
+	color:#7F7F7F;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Footer CSS
+/*-----------------------------------------------------------------------------------*/
+
+#footer{
+	background:#2A2A2A;
+	min-height:120px;
+	padding:20px 0 0 0;
+	color:#6F6F6F;
+	line-height:24px;
+}
+
+#footer a{
+	color:#fff;
+	text-decoration:none;
+}
+
+#footer-right{
+	float:right;
+	text-align:right;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Feature Icon Classes
+/*-----------------------------------------------------------------------------------*/
+
+.feature h4.alarm{background:url(/assets/icons/alarm.png) left center no-repeat;}
+.feature h4.arrowdown{background:url(/assets/icons/arrowdown.png) left center no-repeat;}
+.feature h4.arrowleft{background:url(/assets/icons/arrowleft.png) left center no-repeat;}
+.feature h4.arrowright{background:url(/assets/icons/arrowright.png) left center no-repeat;}
+.feature h4.arrowup{background:url(/assets/icons/arrowup.png) left center no-repeat;}
+.feature h4.bank{background:url(/assets/icons/bank.png) left center no-repeat;}
+.feature h4.briefcase{background:url(/assets/icons/briefcase.png) left center no-repeat;}
+.feature h4.calculator{background:url(/assets/icons/calculator.png) left center no-repeat;}
+.feature h4.camera{background:url(/assets/icons/camera.png) left center no-repeat;}
+.feature h4.clapboard{background:url(/assets/icons/clapboard.png) left center no-repeat;}
+.feature h4.clock{background:url(/assets/icons/clock.png) left center no-repeat;}
+.feature h4.connections{background:url(/assets/icons/connections.png) left center no-repeat;}
+.feature h4.credit_card{background:url(/assets/icons/credit_card.png) left center no-repeat;}
+.feature h4.database{background:url(/assets/icons/database.png) left center no-repeat;}
+.feature h4.delete{background:url(/assets/icons/delete.png) left center no-repeat;}
+.feature h4.delivery{background:url(/assets/icons/delivery.png) left center no-repeat;}
+.feature h4.disk{background:url(/assets/icons/disk.png) left center no-repeat;}
+.feature h4.eject{background:url(/assets/icons/eject.png) left center no-repeat;}
+.feature h4.fastforward{background:url(/assets/icons/fastforward.png) left center no-repeat;}
+.feature h4.filter{background:url(/assets/icons/filter.png) left center no-repeat;}
+.feature h4.fire{background:url(/assets/icons/fire.png) left center no-repeat;}
+.feature h4.first_aid{background:url(/assets/icons/first_aid.png) left center no-repeat;}
+.feature h4.folder{background:url(/assets/icons/folder.png) left center no-repeat;}
+.feature h4.forwardtoend{background:url(/assets/icons/forwardtoend.png) left center no-repeat;}
+.feature h4.games{background:url(/assets/icons/games.png) left center no-repeat;}
+.feature h4.graph{background:url(/assets/icons/graph.png) left center no-repeat;}
+.feature h4.heart{background:url(/assets/icons/heart.png) left center no-repeat;}
+.feature h4.house{background:url(/assets/icons/house.png) left center no-repeat;}
+.feature h4.lightbulb{background:url(/assets/icons/lightbulb.png) left center no-repeat;}
+.feature h4.magnet{background:url(/assets/icons/magnet.png) left center no-repeat;}
+.feature h4.magnifyingglass{background:url(/assets/icons/magnifyingglass.png) left center no-repeat;}
+.feature h4.mailclosed{background:url(/assets/icons/mailclosed.png) left center no-repeat;}
+.feature h4.mailopened{background:url(/assets/icons/mailopened.png) left center no-repeat;}
+.feature h4.man{background:url(/assets/icons/man.png) left center no-repeat;}
+.feature h4.minus{background:url(/assets/icons/minus.png) left center no-repeat;}
+.feature h4.monitor{background:url(/assets/icons/monitor.png) left center no-repeat;}
+.feature h4.move{background:url(/assets/icons/move.png) left center no-repeat;}
+.feature h4.newspaper{background:url(/assets/icons/newspaper.png) left center no-repeat;}
+.feature h4.padlock{background:url(/assets/icons/padlock.png) left center no-repeat;}
+.feature h4.page{background:url(/assets/icons/page.png) left center no-repeat;}
+.feature h4.pause{background:url(/assets/icons/pause.png) left center no-repeat;}
+.feature h4.pencilangled{background:url(/assets/icons/pencilangled.png) left center no-repeat;}
+.feature h4.pencilstraight{background:url(/assets/icons/pencilstraight.png) left center no-repeat;}
+.feature h4.photos{background:url(/assets/icons/photos.png) left center no-repeat;}
+.feature h4.piggy{background:url(/assets/icons/piggy.png) left center no-repeat;}
+.feature h4.play{background:url(/assets/icons/play.png) left center no-repeat;}
+.feature h4.plus{background:url(/assets/icons/plus.png) left center no-repeat;}
+.feature h4.preferences{background:url(/assets/icons/preferences.png) left center no-repeat;}
+.feature h4.record{background:url(/assets/icons/record.png) left center no-repeat;}
+.feature h4.refresh{background:url(/assets/icons/refresh.png) left center no-repeat;}
+.feature h4.reload{background:url(/assets/icons/reload.png) left center no-repeat;}
+.feature h4.rewind{background:url(/assets/icons/rewind.png) left center no-repeat;}
+.feature h4.rewindtostart{background:url(/assets/icons/rewindtostart.png) left center no-repeat;}
+.feature h4.rss{background:url(/assets/icons/rss.png) left center no-repeat;}
+.feature h4.safe{background:url(/assets/icons/safe.png) left center no-repeat;}
+.feature h4.scales{background:url(/assets/icons/scales.png) left center no-repeat;}
+.feature h4.shoppingcart{background:url(/assets/icons/shoppingcart.png) left center no-repeat;}
+.feature h4.speaker{background:url(/assets/icons/speaker.png) left center no-repeat;}
+.feature h4.speechbubble{background:url(/assets/icons/speechbubble.png) left center no-repeat;}
+.feature h4.speechmedia{background:url(/assets/icons/speechmedia.png) left center no-repeat;}
+.feature h4.star{background:url(/assets/icons/star.png) left center no-repeat; line-height:24px !important;}
+.feature h4.trash{background:url(/assets/icons/trash.png) left center no-repeat;}
+.feature h4.trend{background:url(/assets/icons/trend.png) left center no-repeat;}
+.feature h4.world{background:url(/assets/icons/world.png) left center no-repeat;}

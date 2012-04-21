@@ -1,0 +1,88 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Dealer:</b>
+  <%= @car.dealer_id %>
+</p>
+
+<p>
+  <b>Reference code:</b>
+  <%= @car.reference_code %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @car.title %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%= @car.make %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%= @car.model %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @car.year %>
+</p>
+
+<p>
+  <b>Color:</b>
+  <%= @car.color %>
+</p>
+
+<p>
+  <b>Transmission:</b>
+  <%= @car.transmission %>
+</p>
+
+<p>
+  <b>Miles:</b>
+  <%= @car.miles %>
+</p>
+
+<p>
+  <b>List price:</b>
+  <%= @car.list_price %>
+</p>
+
+<p>
+  <b>List date:</b>
+  <%= @car.list_date %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @car.description %>
+</p>
+
+<br/>
+<%if @car.assets %>
+<h1>Photos:</h1> 
+
+    <% @car.assets.each do |asset| %>
+    
+        <% if asset.photo.exists? then %>
+            <%= link_to image_tag(asset.photo.url(:thumb)), asset %>
+        <% else %>
+            <%= link_to 'Show', asset %>
+        <% end %>
+        <%= link_to image_tag('/assets/icons/delete_tiny_red22.png'), asset, confirm: 'Are you sure?', method: :delete %>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+    <% end %>
+
+<% end %>
+
+<br/><br/>
+<%= link_to image_tag('/assets/icons/add_photo.png') +'Add Photo', new_asset_path(car_id: @car.id) %>
+
+
+
+<br/><br/><br/><br/>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', dealer_path(@car.dealer) %>

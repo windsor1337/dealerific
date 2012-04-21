@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html> 
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+	<title>Mobilize</title> 
+    <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png"/>
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <!-- scripts -->
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0.1/jquery.mobile-1.0.1.min.js"></script>
+
+    <!-- css -->
+   	<%= stylesheet_link_tag "mobile" %>  
+   
+</head> 
+<body>
+
+<div data-role="page" data-cache="never">
+
+<script src="assets/js/back.js"></script>
+
+<!-- slider -->
+<script src="assets/slider/jquery.flexslider-min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $('.flexslider').flexslider({
+              animation: "slide",
+              controlsContainer: ".flex-container"
+          });
+        });
+</script>
+<!-- /slider -->
+
+    
+    <!-- header -->
+	<div data-role="header" class="page-header">
+    	
+        <!--div class="logo"></div-->
+        <%= @dealer.name %>
+    
+	</div>
+    <!--/header --> 
+    
+            
+    <!-- slider -->
+    <div class="flex-container">
+		<div class="flexslider">
+		    <ul class="slides">
+		    	<li>
+		    		<img src="/assets/mobile/demo/slides/1.jpg" alt="slide">
+		    		<p class="flex-caption">Touch Optimized Responsive Slider!</p>
+	    	  	</li>
+		    	<li>
+		    		<img src="/assets/mobile/demo/slides/2.jpg" alt="slide">
+		    		<p class="flex-caption"> &laquo; Swipe Horizontally with Finger &raquo;</p>
+	    	  	</li>
+		    	<li>
+		    		<img src="/assets/mobile/demo/slides/3.jpg" alt="slide">                </li>
+		    	<li>
+		    		<img src="/assets/mobile/demo/slides/4.jpg" alt="slide">                </li>
+		    </ul>
+		</div>
+	</div>
+  <div class="shadow1box"><img src="/assets/mobile/shadow1.png" class="shadow1" alt="shadow"></div>
+    <!-- /slider -->   
+    
+   <%= yield %>
+    
+    <!-- footer -->
+	<div data-role="footer">
+		<div data-role="navbar" class="custom-icons" data-grid="c"  data-position="fixed">
+			<ul>
+				<li><a href="http://bit.ly/yx2mXZ" id="footprints" data-icon="custom" data-theme="b">Directions</a></li>
+				<li><a href="tel:18005551234" id="cell" data-icon="custom" data-theme="b">Call Us</a></li>
+				<li><a href="portfolio.html" id="brush" data-icon="custom" data-theme="b" data-ajax="false">Portfolio</a></li>
+				<li><a href="twitter.html" id="twitter" data-icon="custom" data-theme="b" data-ajax="false">Tweets</a></li>
+			</ul>
+		</div>
+       
+	</div>
+	<!-- /footer -->
+    
+</div><!-- /page -->
+
+
+<!-- SCRIPTS -->
+
+<!-- add to homepage bubble on iphone, ipad  -->
+<script type="text/javascript">
+	if ('standalone' in navigator && !navigator.standalone && (/iphone|ipod|ipad/gi).test(navigator.platform) && (/Safari/i).test(navigator.appVersion)) {
+		document.write('<link rel="stylesheet" href="assets\/add-bubble\/style\/add2home.css">');
+		document.write('<script type="application\/javascript" src="assets\/add-bubble\/src\/add2home.js" charset="utf-8"><\/s' + 'cript>');
+	}
+</script>
+<!-- /add to homepage bubble on iphone, ipad  --> 
+
+</body>
+</html>

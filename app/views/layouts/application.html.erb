@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cars</title>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <%= stylesheet_link_tag    "table", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<!-- START HEADER -->
+<div id="header">
+
+	<div class="container">
+    
+    	<div id="header-right">
+            <% if current_user %>
+                Welcome back, <%= current_user.email %> &nbsp; &nbsp; |
+                <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            <% end %>
+            
+        </div>
+        
+        <!-- LOGO -->        
+    	<a href="#">
+        <% if current_user && current_user.dealer then
+                @dealer = Dealer.find_by_id current_user.dealer_id
+                if @dealer.user.photo.exists? then
+                    @logo_url = @dealer.user.photo.url(:thumb)
+                end
+           elsif current_user && current_user.reseller && current_user.photo.exists? then
+                @logo_url = current_user.photo.url(:thumb)
+           end 
+        %>
+        <% if @logo_url then %>
+            <%= image_tag @logo_url %>
+        <% else %>
+            <img src="/assets/dealerific.png" border="0" alt="MacLander App Site Template" /></a>
+        <% end %>
+        
+        <br class="clear" />
+        
+    </div>
+    
+</div>
+<!-- END HEADER -->
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<br/><br/>
+
+<div class="container">
+
+    <%= yield %>
+
+</div>
+
+<br class="clear" />
+<br class="clear" />
+<br class="clear" />
+<br class="clear" />
+<br class="clear" />
+
+<!-- START FOOTER -->
+<div id="footer">
+
+	<div class="container">
+    
+    	<div id="footer-right">
+        
+        	Created by <a href="http://tyler.tc/" target="_blank">Tyler Colwell</a> © 2011<br />
+            Fan Us on <a href="#">Facebook</a><br />
+      		Follow Us on <a href="#">Twitter</a>
+            
+        </div>
+    
+		<a id="top" href="#">Top</a> | <a href="#">Andriod Version</a> | <a href="#">Company Blog</a> | <a href="#">About Us</a> | <a href="#">Contact</a><br />
+        Download MacLander on ThemeForest.<br />
+        
+        <br class="clear" />
+    
+  </div>
+    
+</div><!-- END FOOTER -->
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+<h2>Listing dealers</h2>  
+<br/>
+
+<table summary="Dealers">
+<caption>Dealers</caption>
+<thead>
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Address</th>
+    <th scope="col">Service phone</th>
+    <th scope="col">Email</th>
+    <th scope="col">Mobile website url</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead>
+
+<tbody>
+<% @dealers.each do |dealer| %>
+  <tr class="<%= cycle("", "odd") %>">
+    <th scope="row" id="r100">
+        <% if dealer.photo.exists? then %>
+            <%= image_tag dealer.photo.url(:thumb) %>
+        <% end %>
+        <%= dealer.name %>
+    </th>
+    <td><%= "#{dealer.address1}\n#{dealer.city} #{dealer.state}, #{dealer.zipcode}" %></td>
+    <td><%= dealer.service_phone %></td>
+    <td><%= dealer.email %></td>
+    <td><%= dealer.mobile_website_url %></td>
+    <td><%= link_to 'Show', dealer %>
+    <%= link_to 'Edit', edit_dealer_path(dealer) %>
+    <%= link_to 'Destroy', dealer, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</tbody>
+
+<!--tfoot>
+<tr>
+<th scope="row">Total</th>
+<td colspan="4">67 designs</td>
+</tr>
+</tfoot-->
+
+</table>
+
+<%= link_to 'New Dealer', new_dealer_path %>
+
+
+
+
