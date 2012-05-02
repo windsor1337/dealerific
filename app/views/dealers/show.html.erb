@@ -1,83 +1,80 @@
-<p id="notice"><%= notice %></p>
+<section role="main" id="main">
+    <div class="with-padding">
 
-<% if @dealer.photo.exists? then %>
-	<%= image_tag @dealer.photo.url(:small) %>
-<% end %>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @dealer.name %>
-</p>
+        <% if @dealer.photo.exists? then %>
+            <%= image_tag @dealer.photo.url(:small) %>
+        <% end %>
 
-<p>
-  <b>Address1:</b>
-  <%= @dealer.address1 %>
-</p>
+        <div class="block">
 
-<p>
-  <b>Address2:</b>
-  <%= @dealer.address2 %>
-</p>
+            <div class="block-title blue-gradient glossy">
+                <h3><%= @dealer.name %></h3>
+                <div class="button-group absolute-right compact">
+                    <a href="#" class="button icon-pencil">Edit</a>
+                    <a href="#" class="button icon-gear with-tooltip" title="Other actions"></a>
+                    <a href="#" class="button icon-trash with-tooltip confirm" title="Delete"></a>
+                </div>
+            </div>
+            <div class="columns">
 
-<p>
-  <b>City:</b>
-  <%= @dealer.city %>
-</p>
+                <div class="six-columns twelve-columns-mobile">
+                    <div class="with-padding">
 
-<p>
-  <b>State:</b>
-  <%= @dealer.state %>
-</p>
+                        <p>
+                            <%= "#{@dealer.address1}" %> <br/>
+                            <%= "#{@dealer.city}, #{@dealer.state} #{@dealer.zipcode}"  %>
+                        </p>
+                        <p>
+                            <b>Hours of operation:</b>
+                            <%= @dealer.hours_of_operation %>
+                        </p>
+                        <p>
+                            <b>Website url:</b>
+                            <%= @dealer.website_url %>
+                        </p>
 
-<p>
-  <b>Zipcode:</b>
-  <%= @dealer.zipcode %>
-</p>
+                    </div>
 
-<p>
-  <b>Sales phone:</b>
-  <%= @dealer.sales_phone %>
-</p>
+                </div>
+                
+                <div class="six-columns twelve-columns-mobile">
+                    <div class="with-padding">
+                        <p>
+                          <b>Sales phone:</b>
+                          <%= @dealer.sales_phone %>
+                        </p>
 
-<p>
-  <b>Service phone:</b>
-  <%= @dealer.service_phone %>
-</p>
+                        <p>
+                          <b>Service phone:</b>
+                          <%= @dealer.service_phone %>
+                        </p>
 
-<p>
-  <b>Email:</b>
-  <%= @dealer.email %>
-</p>
+                        <p>
+                          <b>Email:</b>
+                          <%= current_user.email %>
+                        </p>
+                        <p>
+                          <b>Facebook:</b>
+                          <%= @dealer.facebook %>
+                        </p>
 
-<p>
-  <b>Hours of operation:</b>
-  <%= @dealer.hours_of_operation %>
-</p>
+                        <p>
+                          <b>Twitter:</b>
+                          <%= @dealer.twitter %>
+                        </p>
 
-<p>
-  <b>Website url:</b>
-  <%= @dealer.website_url %>
-</p>
+                    </div>
 
-<p>
-  <b>Mobile website url:</b>
-  <%= @dealer.mobile_website_url %>
-</p>
+                </div>
 
-<p>
-  <b>Facebook:</b>
-  <%= @dealer.facebook %>
-</p>
+            </div>
+        </div>
+    </div>
 
-<p>
-  <b>Twitter:</b>
-  <%= @dealer.twitter %>
-</p>
+</section>
 
-<p>
-  <b>Logo url:</b>
-  <%= @dealer.logo_url %>
-</p>
 
 <h1>Listing cars</h1>
 

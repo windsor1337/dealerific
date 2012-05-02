@@ -1,50 +1,78 @@
 
-<h2>Listing dealers</h2>  
-<br/>
 
-<table summary="Dealers">
-<caption>Dealers</caption>
-<thead>
-  <tr>
-    <th scope="col">Name</th>
-    <th scope="col">Address</th>
-    <th scope="col">Service phone</th>
-    <th scope="col">Email</th>
-    <th scope="col">Mobile website url</th>
-    <th scope="col">Actions</th>
-  </tr>
-</thead>
+<!-- Main content -->
+	<section role="main" id="main">
+    
+    
+		<noscript class="message black-gradient simpler">Your browser does not support JavaScript! Some features won't work as expected...</noscript>
 
-<tbody>
-<% @dealers.each do |dealer| %>
-  <tr class="<%= cycle("", "odd") %>">
-    <th scope="row" id="r100">
-        <% if dealer.photo.exists? then %>
-            <%= image_tag dealer.photo.url(:thumb) %>
+		<hgroup id="main-title" class="thin">
+			<h1>Dealers</h1>
+		</hgroup>
+
+		<div class="with-padding">
+        
+        <% if notice then %>
+            <p class="wrapped left-icon icon-info-round">
+                <%= notice %>
+            </p>
         <% end %>
-        <%= dealer.name %>
-    </th>
-    <td><%= "#{dealer.address1}\n#{dealer.city} #{dealer.state}, #{dealer.zipcode}" %></td>
-    <td><%= dealer.service_phone %></td>
-    <td><%= dealer.email %></td>
-    <td><%= dealer.mobile_website_url %></td>
-    <td><%= link_to 'Show', dealer %>
-    <%= link_to 'Edit', edit_dealer_path(dealer) %>
-    <%= link_to 'Destroy', dealer, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</tbody>
+        
+        <% if alert then %>
+            <p class="wrapped left-icon icon-info-round">
+                <%= alert %>
+            </p>
+        <% end %>
 
-<!--tfoot>
-<tr>
-<th scope="row">Total</th>
-<td colspan="4">67 designs</td>
-</tr>
-</tfoot-->
+			<table class="table responsive-table" id="sorting-advanced">
 
-</table>
+				<thead>
+					<tr>
+						<th scope="col">Dealer</th>
+                        <th scope="col" width="15%" class="align-center hide-on-mobile">Location</th>
+						<th scope="col" width="15%" class="align-center hide-on-mobile">Date</th>
+						<th scope="col" width="20%" class="align-center hide-on-mobile-portrait">Email</th>
+						<th scope="col" width="10%" class="align-center">Actions</th>
+					</tr>
+				</thead>
 
-<%= link_to 'New Dealer', new_dealer_path %>
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							6 entries found
+						</td>
+					</tr>
+				</tfoot>
+
+				<tbody>
+                    <% @dealers.each do |dealer| %>
+					<tr>
+						<td><%= link_to dealer.name , dealer_path(dealer) %></td>
+                        <td><%= "#{dealer.city} #{dealer.state}" %></td>
+						<td><%= dealer.created_at %></td>
+						<td><%= current_user.email %></td>
+                        
+						<td class="align-right vertical-center">
+							<span class="button-group compact">
+                                <%= link_to('Edit', edit_dealer_path(dealer), :class => 'button icon-pencil') %>
+                                <%= link_to '', dealer, confirm: 'Are you sure?', method: :delete, :class => 'button icon-trash with-tooltip confirm' %>
+                                
+							</span>
+						</td>					
+                    </tr>
+                    <% end %>
+                    
+					
+                </tbody>
+
+			</table>
+            <%= link_to 'Add New Dealer', new_dealer_path %>
+        </div>
+        
+	</section>
+	<!-- End main content -->
+
+
 
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420160817) do
+ActiveRecord::Schema.define(:version => 20120421182854) do
 
   create_table "assets", :force => true do |t|
     t.integer  "car_id"
@@ -96,6 +96,9 @@ ActiveRecord::Schema.define(:version => 20120420160817) do
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

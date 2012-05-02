@@ -12,35 +12,11 @@
 	<hr class="ornamental"/>
 
 <br/><br/>
-<!--Cars-->
- <% @cars.each do |car| %>
-    <% @primaryasset = car.assets.find_by_primary true %>
-    <% if @primaryasset && @primaryasset.photo.exists? then %>
-            <%= link_to image_tag(@primaryasset.photo.url(:thumb)), car %>
-    <% end %>
-    
-    <%= "#{car.year} #{car.make} #{car.model}" %><br/>
-    <% if car.title %>
-        <%= car.title %><br/>
-    <% end %>
-    <b>Color: <%= car.color %></b><br/>
-    <b>Transmission:</b><%= car.transmission %><br/>
-    <b>Miles:</b><%= car.miles %><br/>
-    <b>Price:</b><%= car.list_price %><br/>
-    <b>Info:</b><%= car.description %><br/>
-    <b>List Date:</b><%= car.list_date %><br/>
-    <td><%= link_to 'Show', car %></td>
-    <br/><br/>
-    
-<% end %>
-<!--/Cars -->
-
-<br/><br/>
 
 		<!-- navigation -->
 		<ul data-role="listview" data-inset="true" id="listview" style="margin-bottom:0px">
 			 
-			<li><a href="about.html" data-prefetch data-transition="flip">About</a></li>
+			<li><a href="cars" data-prefetch data-transition="flip">Our Cars</a></li>
     		<li><a href="page-styles.html" data-prefetch>Page Styles</a></li>
             <li><a href="icons.html" data-transition="flip" data-prefetch>Nav Icons</a></li>
             <li><a href="contact.php" data-prefetch data-ajax="false">Contact Form</a></li>

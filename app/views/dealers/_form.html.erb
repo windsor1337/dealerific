@@ -11,71 +11,89 @@
     </div>
   <% end %>
 
+<%if !@edit then %>  
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    Login Information:<br/>
+    <%= f.text_field(:email, :placeholder => 'Contact Email Address') %>
+  </div>
+  <div>
+    <input name="password" type="password" placeholder="Password" size="25">
+  </div>
+  <div>
+    <input name="password_confirmation" type="password" placeholder="Password Confirmation" size="25">
+  </div>
+  
+  <br/><br/>
+  
+  <div class="field">
+    Contact Information:<br/>
+    <input name="first_name" type="text" placeholder="First Name" size="25">
+    <input name="last_name" type="text" placeholder="Last Name" size="25">
+  </div>
+  <div>
+    <input name="phone" type="text" placeholder="Contact Phone" size="25">
+  </div>
+<% end %>
+
+ 
+  <br/>
+  <br/>
+  
+  <div class="field">
+    Dealership Information:<br/>
+    <%= f.text_field(:name, :placeholder => 'Dealership Name') %>
   </div>
   <div class="field">
-    <%= f.label :address1 %><br />
-    <%= f.text_field :address1 %>
+    <%= f.text_field(:hours_of_operation, :placeholder => 'Hours of Operation') %>
+  </div>
+  <br/>
+  
+  <div class="field">
+    <%= f.label 'Address:' %><br />
+    <%= f.text_field(:address1, :placeholder => 'Address Line 1') %>
   </div>
   <div class="field">
-    <%= f.label :address2 %><br />
-    <%= f.text_field :address2 %>
+    <%= f.text_field(:address2, :placeholder => 'Address Line 2') %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
+    <%= f.text_field(:city, :placeholder => 'City') %>
   </div>
   <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state %>
+    <%= f.text_field(:state, :placeholder => 'State') %>
   </div>
   <div class="field">
-    <%= f.label :zipcode %><br />
-    <%= f.text_field :zipcode %>
+    <%= f.text_field(:zipcode, :placeholder => 'Zipcode') %>
+  </div>
+  <br/>
+  
+  <div class="field">
+    <%= f.label 'Contact Information:' %><br />
+    <%= f.text_field(:sales_phone, :placeholder => 'Sales Phone') %>
   </div>
   <div class="field">
-    <%= f.label :sales_phone %><br />
-    <%= f.text_field :sales_phone %>
+    <%= f.text_field(:service_phone, :placeholder => 'Service Phone') %>
+  </div>
+  
+  <div class="field">
+    <%= f.text_field(:website_url, :placeholder => 'Website URL') %>
   </div>
   <div class="field">
-    <%= f.label :service_phone %><br />
-    <%= f.text_field :service_phone %>
+    <%= f.text_field(:facebook, :placeholder => 'Facebook Page') %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.text_field(:twitter, :placeholder => 'Twitter Handle') %>
   </div>
+  <br/>
+  
   <div class="field">
-    <%= f.label :hours_of_operation %><br />
-    <%= f.text_field :hours_of_operation %>
-  </div>
-  <div class="field">
-    <%= f.label :website_url %><br />
-    <%= f.text_field :website_url %>
-  </div>
-  <div class="field">
-    <%= f.label :mobile_website_url %><br />
-    <%= f.text_field :mobile_website_url %>
-  </div>
-  <div class="field">
-    <%= f.label :facebook %><br />
-    <%= f.text_field :facebook %>
-  </div>
-  <div class="field">
-    <%= f.label :twitter %><br />
-    <%= f.text_field :twitter %>
-  </div>
-  <div class="field">
-    <%= f.label :logo_url %><br />
-    <%= f.text_field :logo_url %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br />
+    <%= f.label 'Dealership Logo:' %><br />
     <%= f.file_field :photo %>
   </div>
+  <br/>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "", :type => :image, :src => "/assets/create_dealer.png"%>
   </div>
+  <br/>
+  <br/>
 <% end %>

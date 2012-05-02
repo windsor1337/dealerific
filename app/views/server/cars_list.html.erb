@@ -1,0 +1,49 @@
+
+    
+    <!-- main content -->
+    <div data-role="content">
+
+    	
+	<p>Perfect for a menu, real estate listings, staff members, a list of products, or a blog landing page!</p>
+    
+	
+    <!-- list begins -->  
+    <div class="padd"> 
+	<div class="thumbnail-list">        
+        
+	<ul  data-filter-placeholder="Search..." data-inset="true" data-filter="true" data-role="listview" data-filter-theme="b" >
+        
+         <% @cars.each do |car| %>
+            <li class="ui-btn-icon-right"> 
+                <div class="ui-btn-inner ui-li">
+                
+                    <div class="ui-btn-text">
+                        <a class="ui-link-inherit" href="demo-page.html">
+                            
+                            <!-- Car Thumbnail -->
+                            <% @primaryasset = car.assets.find_by_primary true %>
+                            <% if @primaryasset && @primaryasset.photo.exists? then %>
+                                    <%= image_tag(@primaryasset.photo.url(:thumb),:class => 'ui-li-thumb')%>
+                            <% end %>
+                            
+                            <h3 class="ui-li-heading"><%= "#{car.year} #{car.make} #{car.model}" %></h3>
+                            <p class="ui-li-desc"><%= car.title %></p>
+                            <p class="ui-li-desc"><%= car.miles %></p>
+                        </a>				
+                    </div>
+                    
+                    <span class="ui-icon ui-icon-arrow-r ui-icon-shadow"></span>			
+                </div>
+            </li>
+        <% end %>
+		
+    </ul>
+        
+
+	</div>
+    </div>
+    <!-- list ends -->
+
+</div>
+  
+  

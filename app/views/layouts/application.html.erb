@@ -1,28 +1,281 @@
+
 <!DOCTYPE html>
-<html>
+
+<!--[if IEMobile 7]><html class="no-js iem7 oldie"><![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js ie9" lang="en"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
 <head>
-  <title>Cars</title>
-  <%= stylesheet_link_tag    "style", :media => "all" %>
-  <%= stylesheet_link_tag    "table", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-<!-- START HEADER -->
-<div id="header">
+	<title>Developr</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-	<div class="container">
+	<!-- http://davidbcalhoun.com/2010/viewport-metatag -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<!-- For all browsers -->
+    <%= stylesheet_link_tag "reset" %> 
+    <%= stylesheet_link_tag "style" %> 
+    <%= stylesheet_link_tag "colors" %> 
+    <%= stylesheet_link_tag "print", :media => 'print' %> 
+
+	<!-- For progressively larger displays -->
+    <%= stylesheet_link_tag "480", :media => 'only all and (min-width: 480px)' %>
+    <%= stylesheet_link_tag "768", :media => 'only all and (min-width: 768px)' %>
+    <%= stylesheet_link_tag "992", :media => 'only all and (min-width: 992px)' %>
+    <%= stylesheet_link_tag "1200", :media => 'only all and (min-width: 1200px)' %>
     
-    	<div id="header-right">
-            <% if current_user %>
-                Welcome back, <%= current_user.email %> &nbsp; &nbsp; |
-                <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-            <% end %>
-            
-        </div>
-        
-        <!-- LOGO -->        
+    <!-- For Retina displays -->
+    <%= stylesheet_link_tag "2x", :media => 'only all and (-webkit-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (min-device-pixel-ratio: 1.5)' %>
+
+	<!-- Webfonts -->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+
+	<!-- Additional styles -->
+    <%= stylesheet_link_tag "form" %> 
+    <%= stylesheet_link_tag "switches" %> 
+    <%= stylesheet_link_tag "table" %> 
+
+	<!-- DataTables -->
+    <%= stylesheet_link_tag "dataTables" %>
+
+    
+    <%= javascript_include_tag "/libs/modernizr.custom.js" %>
+	
+
+	<!-- For Modern Browsers -->
+	<link rel="shortcut icon" href="/assets/favicons/favicon.png">
+	<!-- For everything else -->
+	<link rel="shortcut icon" href="/assets/favicons/favicon.ico">
+	<!-- For retina screens -->
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/favicons/apple-touch-icon-retina.png">
+	<!-- For iPad 1-->
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/favicons/apple-touch-icon-ipad.png">
+	<!-- For iPhone 3G, iPod Touch and Android -->
+	<link rel="apple-touch-icon-precomposed" href="/assets/favicons/apple-touch-icon.png">
+
+	<!-- iOS web-app metas -->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- Startup image for web apps -->
+	<link rel="apple-touch-startup-image" href="/assets/splash/ipad-landscape.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape)">
+	<link rel="apple-touch-startup-image" href="/assets/splash/ipad-portrait.png" media="screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait)">
+	<link rel="apple-touch-startup-image" href="/assets/splash/iphone.png" media="screen and (max-device-width: 320px)">
+
+	<!-- Microsoft clear type rendering -->
+	<meta http-equiv="cleartype" content="on">
+</head>
+
+<body class="clearfix with-menu with-shortcuts">
+
+	<!-- Prompt IE 6 users to install Chrome Frame -->
+	<!--[if lt IE 7]><p class="message red-gradient simpler">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p><![endif]-->
+
+	<!-- Title bar -->
+	<header role="banner" id="title-bar">
+		<h2>Dealerific</h2>
+	</header>
+    
+	<!-- Button to open/hide menu -->
+	<a href="#" id="open-menu"><span>Menu</span></a>
+
+	<!-- Button to open/hide shortcuts -->
+	<a href="#" id="open-shortcuts"><span class="icon-thumbs"></span></a>
+    
+    
+    
+    
+
+    <%= yield %>
+    
+    
+    
+    
+    
+    
+
+	
+
+	<!-- Sidebar/drop-down menu -->
+	<section id="menu" role="complementary">
+
+		<!-- This wrapper is used by several responsive layouts -->
+		<div id="menu-content">
+
+			<header>
+				Administrator
+			</header>
+
+			<div id="profile">
+				<img src="/assets/user.png" width="64" height="64" alt="User name" class="user-icon">
+                <% if current_user %>
+                    Welcome back, <span class="name"><%= current_user.email %> </span>
+                    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+                <% end %>
+            </div>
+
+			<!-- By default, this section is made for 4 icons, see the doc to learn how to change this, in "basic markup explained" -->
+			<ul id="access" class="children-tooltip">
+                
+                <li>
+                    <a href="<%= dealers_path %>" title="Profile"><span class="icon-user"></span>
+                        <% if @dealers then %>
+                            <span class="count"><%= @dealers.count %></span>
+                        <% end %>
+                    </a>
+                </li>
+                <li><a href="<%= edit_user_registration_path(current_user) %>" title="Messages"><span class="icon-gear"></span></a></li>
+				
+			</ul>
+
+			
+
+			
+
+		</div>
+		<!-- End content wrapper -->
+
+		
+
+	</section>
+	<!-- End sidebar/drop-down menu -->
+
+	<!-- JavaScript at the bottom for fast page loading -->
+
+	<!-- Scripts -->
+    <%= javascript_include_tag "/libs/jquery-1.7.2.min.js" %>
+	<%= javascript_include_tag "setup.js" %>
+
+	<!-- Template functions -->
+    <%= javascript_include_tag "developr.input.js" %>
+    <%= javascript_include_tag "developr.navigable.js" %>
+    <%= javascript_include_tag "developr.notify.js" %>
+    <%= javascript_include_tag "developr.scroll.js" %>
+    <%= javascript_include_tag "developr.tooltip.js" %>
+    <%= javascript_include_tag "developr.table.js" %>
+
+	<!-- Plugins -->
+    <%= javascript_include_tag "jquery.tablesorter.min.js" %>
+    <%= javascript_include_tag "jquery.dataTables.min.js" %>
+    
+    <%= javascript_include_tag "application" %>
+
+	<script>
+
+		// Call template init (optional, but faster if called manually)
+		$.template.init();
+
+		// Table sort - DataTables
+		$('#sorting-advanced').dataTable({
+			'aoColumnDefs': [
+				{ 'bSortable': false, 'aTargets': [ 0, 5 ] }
+			],
+			'sPaginationType': 'full_numbers',
+			'sDom': '<"dataTables_header"lfr>t<"dataTables_footer"ip>'
+		});
+
+		// Table sort - styled
+		$('#sorting-example1').tablesorter({
+			headers: {
+				0: { sorter: false },
+				5: { sorter: false }
+			}
+		}).on('click', 'tbody td', function(event)
+		{
+			// Do not process if something else has been clicked
+			if (event.target !== this)
+			{
+				return;
+			}
+
+			var tr = $(this).parent(),
+				row = tr.next('.row-drop'),
+				rows;
+
+			// If click on a special row
+			if (tr.hasClass('row-drop'))
+			{
+				return;
+			}
+
+			// If there is already a special row
+			if (row.length > 0)
+			{
+				// Un-style row
+				tr.children().removeClass('anthracite-gradient glossy');
+
+				// Remove row
+				row.remove();
+
+				return;
+			}
+
+			// Remove existing special rows
+			rows = tr.siblings('.row-drop');
+			if (rows.length > 0)
+			{
+				// Un-style previous rows
+				rows.prev().children().removeClass('anthracite-gradient glossy');
+
+				// Remove rows
+				rows.remove();
+			}
+
+			// Style row
+			tr.children().addClass('anthracite-gradient glossy');
+
+			// Add fake row
+			$('<tr class="row-drop">'+
+				'<td colspan="'+tr.children().length+'">'+
+					'<div class="float-right">'+
+						'<button type="submit" class="button glossy mid-margin-right">'+
+							'<span class="button-icon"><span class="icon-mail"></span></span>'+
+							'Send mail'+
+						'</button>'+
+						'<button type="submit" class="button glossy">'+
+							'<span class="button-icon red-gradient"><span class="icon-cross"></span></span>'+
+							'Remove'+
+						'</button>'+
+					'</div>'+
+					'<strong>Name:</strong> John Doe<br>'+
+					'<strong>Account:</strong> admin<br>'+
+					'<strong>Last connect:</strong> 05-07-2011<br>'+
+					'<strong>Email:</strong> john@doe.com'+
+				'</td>'+
+			'</tr>').insertAfter(tr);
+
+		}).on('sortStart', function()
+		{
+			var rows = $(this).find('.row-drop');
+			if (rows.length > 0)
+			{
+				// Un-style previous rows
+				rows.prev().children().removeClass('anthracite-gradient glossy');
+
+				// Remove rows
+				rows.remove();
+			}
+		});
+
+		// Table sort - simple
+	    $('#sorting-example2').tablesorter({
+			headers: {
+				5: { sorter: false }
+			}
+		});
+
+	</script>
+</body>
+</html>
+        <!-- LOGO         
     	<a href="#">
         <% if current_user && current_user.dealer then
                 @dealer = Dealer.find_by_id current_user.dealer_id
@@ -39,52 +292,7 @@
             <img src="/assets/dealerific.png" border="0" alt="MacLander App Site Template" /></a>
         <% end %>
         
-        <br class="clear" />
-        
-    </div>
+    &nbsp;&nbsp;<p class="notice"><%= notice %></p>
+    &nbsp;&nbsp;<p class="alert"><%= alert %></p>-->
     
-</div>
-<!-- END HEADER -->
 
-
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-
-<br/><br/>
-
-<div class="container">
-
-    <%= yield %>
-
-</div>
-
-<br class="clear" />
-<br class="clear" />
-<br class="clear" />
-<br class="clear" />
-<br class="clear" />
-
-<!-- START FOOTER -->
-<div id="footer">
-
-	<div class="container">
-    
-    	<div id="footer-right">
-        
-        	Created by <a href="http://tyler.tc/" target="_blank">Tyler Colwell</a> © 2011<br />
-            Fan Us on <a href="#">Facebook</a><br />
-      		Follow Us on <a href="#">Twitter</a>
-            
-        </div>
-    
-		<a id="top" href="#">Top</a> | <a href="#">Andriod Version</a> | <a href="#">Company Blog</a> | <a href="#">About Us</a> | <a href="#">Contact</a><br />
-        Download MacLander on ThemeForest.<br />
-        
-        <br class="clear" />
-    
-  </div>
-    
-</div><!-- END FOOTER -->
-
-</body>
-</html>

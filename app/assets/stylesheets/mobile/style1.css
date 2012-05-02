@@ -1354,9 +1354,9 @@ a.ui-link-inherit {
 	background:url(/assets/mobile/arrow.png) right no-repeat; 
 	background-size: 25px 30px;
 	
-	font-family: 'Kaushan Script', cursive; font-size:18px; 
-	/* font-family: 'Lobster', cursive; font-size:18px; */
-	/* font-family: 'Cabin', sans-serif; font-weight: 700; font-size:18px; */
+	/* font-family: 'Kaushan Script', cursive; font-size:18px; */
+	/*font-family: 'Lobster', cursive; font-size:18px; */
+	 font-family: 'Cabin', sans-serif; font-weight: 700; font-size:18px;
 	/* font-family: 'Droid Serif', serif; font-weight:700; font-style:italic; font-size:17px; */
 	
 	color:#eee !important;

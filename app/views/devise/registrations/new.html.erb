@@ -14,8 +14,18 @@
   <div><%= f.label :password_confirmation %><br />
   <%= f.password_field :password_confirmation %></div>
 
+
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+  
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+  
+  <div><%= f.label :phone %><br />
+  <%= f.text_field :phone %></div>
+  
   <div class="field">
-    <%= f.label 'Logo Image:' %><br />
+    <%= f.label 'Logo Image (This is what your customers will see):' %><br />
     <%= f.file_field :photo %>
   </div>
   

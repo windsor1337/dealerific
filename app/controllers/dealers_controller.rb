@@ -16,6 +16,11 @@ class DealersController < ApplicationController
     else
         #redirect_to No Access Page
     end
+      
+    if current_user.reseller then
+       @tiny_message = "Hi, #{@current_user.first_name} #{@current_user.last_name}" 
+       @bold_message = 'Your Dealers are listed below.'
+    end
     
     #if !@dealers redirect_to NO Access Page
       
@@ -54,6 +59,7 @@ class DealersController < ApplicationController
         redirect_to dealers_path, notice: 'You do not have permission to create a Dealer!' and return
     end
     @dealer = Dealer.new
+    @user = User.new
       
     respond_to do |format|
       format.html # new.html.erb
@@ -64,6 +70,7 @@ class DealersController < ApplicationController
   # GET /dealers/1/edit
   def edit
     @dealer = Dealer.find(params[:id])
+    @edit = true
       
     if (@dealer.user_id != @user.id && @dealer.id != @user.dealer_id && !@user.admin)
        redirect_to dealers_path, notice: 'You do not have permission to modify!'
@@ -79,10 +86,23 @@ class DealersController < ApplicationController
     end
       
     @dealer = Dealer.new(params[:dealer])
+    @user = User.new(:email => @dealer.email, :password => params['password'], :password_confirmation => params['password_confirmation'])
+      
     @dealer.user_id = current_user.id
+    @dealer.email = @user.email
+    savedDealer = @dealer.save
+      
+    
+    @user.dealer = true
+    @user.dealer_id = @dealer.id
+    @user.first_name = params['first_name']
+    @user.last_name = params['last_name']
+    @user.phone = params['phone']
+    @user.skip_confirmation!
+    savedUser = @user.save
       
     respond_to do |format|
-      if @dealer.save
+      if savedDealer && savedUser
         format.html { redirect_to @dealer, notice: 'Dealer was successfully created.' }
         format.json { render json: @dealer, status: :created, location: @dealer }
       else

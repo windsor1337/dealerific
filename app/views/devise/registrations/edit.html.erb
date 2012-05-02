@@ -17,8 +17,17 @@
   <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
   <%= f.password_field :current_password %></div>
 
+  <div><%= f.label :first_name %><br />
+  <%= f.text_field :first_name %></div>
+  
+  <div><%= f.label :last_name %><br />
+  <%= f.text_field :last_name %></div>
+  
+  <div><%= f.label :phone %><br />
+  <%= f.text_field :phone %></div>
+  
   <div class="field">
-    <%= f.label 'Logo Image' %><br />
+    <%= f.label 'Logo Image (This is what your customers will see):' %><br />
     <%= f.file_field :photo %>
   </div>
   
