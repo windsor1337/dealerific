@@ -29,7 +29,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #ededed; }
 .dataTables_header,
 .dataTables_footer {
 	color: white;
-	background: #00438d url(../../../img/old-browsers/colors/bg_button-icon.png) repeat-x;
+	background: #00438d url(/assets/old-browsers/colors/bg_button-icon.png) repeat-x;
 	-webkit-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
 	-o-background-size: 100% 100%;
@@ -106,7 +106,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #ededed; }
 		-webkit-border-radius: 4px;
 		-moz-border-radius: 4px;
 		border-radius: 4px;
-		background: #e6e6e6 url(../../../img/old-browsers/colors/bg_input.png) repeat-x;
+		background: #e6e6e6 url(/assets/old-browsers/colors/bg_input.png) repeat-x;
 		-webkit-background-size: 100% 100%;
 		-moz-background-size: 100% 100%;
 		-o-background-size: 100% 100%;
@@ -179,7 +179,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #ededed; }
 	cursor: pointer;
 	border: 1px solid #004795;
 	background-position: center center !important; /* This is required for glossy gradients image fallbacck*/
-	background: #0a5db8 url(../../../img/old-browsers/colors/bg_blue-gradient_glossy.png) repeat-x;
+	background: #0a5db8 url(/assets/old-browsers/colors/bg_blue-gradient_glossy.png) repeat-x;
 	-webkit-background-size: 100% 100%;
 	-moz-background-size: 100% 100%;
 	-o-background-size: 100% 100%;
@@ -224,7 +224,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #ededed; }
 	.paginate_enabled_next:hover,
 	.paging_full_numbers a:hover {
 		color: white;
-		background: #056fc9 url(../../../img/old-browsers/colors/bg_a_blue-gradient_glossy_hover.png) repeat-x;
+		background: #056fc9 url(/assets/old-browsers/colors/bg_a_blue-gradient_glossy_hover.png) repeat-x;
 		-webkit-background-size: 100% 100%;
 		-moz-background-size: 100% 100%;
 		-o-background-size: 100% 100%;
@@ -298,7 +298,7 @@ table.dataTable tr.even td.sorting_3 { background-color: #ededed; }
 .paging_full_numbers a.paginate_active.last {
 	border: 0;
 	padding: 1px 12px;
-	background: #005fb4 url(../../../img/old-browsers/colors/bg_blue-active_active.png) repeat-x;
+	background: #005fb4 url(/assets/old-browsers/colors/bg_blue-active_active.png) repeat-x;
 	background: -webkit-gradient(linear, left top, left bottom, from(#003475), to(#005fb4));
 	background: -webkit-linear-gradient(top, #003475, #005fb4);
 	background: -moz-linear-gradient(top, #003475, #005fb4);

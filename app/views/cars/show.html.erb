@@ -1,64 +1,74 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Dealer:</b>
-  <%= @car.dealer_id %>
-</p>
+<section role="main" id="main">
+    <div class="with-padding">
 
-<p>
-  <b>Reference code:</b>
-  <%= @car.reference_code %>
-</p>
+        <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @car.title %>
-</p>
 
-<p>
-  <b>Make:</b>
-  <%= @car.make %>
-</p>
+        <div class="block">
 
-<p>
-  <b>Model:</b>
-  <%= @car.model %>
-</p>
+            <div class="block-title blue-gradient glossy">
+                <h3><%= "#{@car.year}, #{@car.make} #{@car.model}"%></h3>
+                <div class="button-group absolute-right compact">
+                    <a href="#" class="button icon-pencil">Edit</a>
+                    <a href="#" class="button icon-gear with-tooltip" title="Other actions"></a>
+                    <a href="#" class="button icon-trash with-tooltip confirm" title="Delete"></a>
+                </div>
+            </div>
+            <div class="columns">
 
-<p>
-  <b>Year:</b>
-  <%= @car.year %>
-</p>
+                <div class="six-columns twelve-columns-mobile">
+                    <div class="with-padding">
 
-<p>
-  <b>Color:</b>
-  <%= @car.color %>
-</p>
+                        <p>
+                            <b>Title:</b>
+                            <%= @car.title %>
+                        </p>
+                        <p>
+                            <b>Color:</b>
+                            <%= @car.color %>
+                        </p>
+                        <p>
+                            <b>Miles:</b>
+                            <%= @car.miles %>
+                        </p>
+                        <p>
+                            <b>Transmission:</b>
+                            <%= @car.transmission %>
+                        </p>
 
-<p>
-  <b>Transmission:</b>
-  <%= @car.transmission %>
-</p>
+                    </div>
 
-<p>
-  <b>Miles:</b>
-  <%= @car.miles %>
-</p>
+                </div>
+                
+                <div class="six-columns twelve-columns-mobile">
+                    <div class="with-padding">
+                        <p>
+                          <b>Description:</b>
+                          <%= @car.description %>
+                        </p>
+                        <p>
+                          <b>Reference Code:</b>
+                          <%= @car.reference_code %>
+                        </p>
+                        <p>
+                          <b>List Date:</b>
+                          <%= @car.list_date %>
+                        </p>
 
-<p>
-  <b>List price:</b>
-  <%= @car.list_price %>
-</p>
+                        <p>
+                          <b>List Price:</b>
+                          <%= @car.list_price %>
+                        </p>
+                        
+                    </div>
 
-<p>
-  <b>List date:</b>
-  <%= @car.list_date %>
-</p>
+                </div>
 
-<p>
-  <b>Description:</b>
-  <%= @car.description %>
-</p>
+            </div>
+        </div>
+    </div>
+
 
 <br/>
 <%if @car.assets %>
@@ -86,3 +96,5 @@
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', dealer_path(@car.dealer) %>
+
+</section>

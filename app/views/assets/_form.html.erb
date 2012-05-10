@@ -11,21 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.hidden_field :car_id %>
-  </div>
-  <div class="field">
-    <%= f.label :photo %><br />
-    <%= f.file_field :photo %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
-  <div class="field">
-    <%= f.label :primary %><br />
-    <%= f.check_box :primary %>
-  </div>
+
+  <%= f.hidden_field :car_id %>
+      
+  <p class="inline-large-label button-height">
+    <%=  f.file_field :photo %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This is a link to an image file.
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :description, :placeholder => 'Image Description', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This is a short description of the image.
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    Primary:
+    <%=  f.check_box :primary, :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This indicator of whether the current image should be considered the primary image.
+        </span>
+    </span>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

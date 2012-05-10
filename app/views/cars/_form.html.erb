@@ -11,53 +11,107 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.hidden_field :dealer_id %>
-  </div>
-  <div class="field">
-    <%= f.label :reference_code %><br />
-    <%= f.text_field :reference_code %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :make %><br />
-    <%= f.text_field :make %>
-  </div>
-  <div class="field">
-    <%= f.label :model %><br />
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br />
-    <%= f.text_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :color %><br />
-    <%= f.text_field :color %>
-  </div>
-  <div class="field">
-    <%= f.label :transmission %><br />
-    <%= f.text_field :transmission %>
-  </div>
-  <div class="field">
-    <%= f.label :miles %><br />
-    <%= f.text_field :miles %>
-  </div>
-  <div class="field">
-    <%= f.label :list_price %><br />
-    <%= f.text_field :list_price %>
-  </div>
-  <div class="field">
-    <%= f.label :list_date %><br />
-    <%= f.date_select :list_date %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_field :description %>
-  </div>
+  <%= f.hidden_field :dealer_id %>
+
+  <h3 class="thin underline">Basic Vehicle Information</h3>
+      
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :year, :placeholder => 'Vehicle Year', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            The year the vehicle was manufactured.
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :make, :placeholder => 'Vehicle Make', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            The make of the vehicle, (i.e. Nissan, Ford, etc)
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :model, :placeholder => 'Vehicle Model', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            The model of the vehicle, (i.e. Cube, Mustang, etc)
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :color, :placeholder => 'Vehicle Color', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            The color of the vehicle.
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :transmission, :placeholder => 'Vehicle Transmission Type', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            The type of transmission in the vehicle, (Automatic, Manual)
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%=  f.text_field :miles, :placeholder => 'Miles on Vehicle', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            The miles on the vehicle.
+        </span>
+    </span>
+  </p>
+
+  
+  <h3 class="thin underline">Vehicle Sales Information</h3>
+  <p class="inline-large-label button-height">
+    <%= f.text_field :title, :placeholder => 'Vehicle Headline Title', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This something catchy to entice the user to look at this car.
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%= f.text_field :description, :placeholder => 'Vehicle Description', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This a place to put all the important information about the vehicle that isn't in the fields above, such as leather, cold ac, stereo, rims, etc.
+        </span>
+    </span>
+  </p>
+  <p class="inline-large-label button-height">
+    <%= f.text_field :list_price, :placeholder => 'Vehicle List Price', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This is the price of the vehicle you want to present to the customer.
+        </span>
+    </span>
+  </p>
+
+  
+  <h3 class="thin underline">Internal Tracking Information</h3>
+  <p class="inline-large-label button-height">
+    <%= f.text_field :reference_code, :placeholder => 'Vehicle Reference Code', :class => 'input small-margin-right' %>
+    <span class="info-spot">
+        <span class="icon-info-round"></span>
+        <span class="info-bubble">
+            This is a code that can be used for internal tracking, like a SKU.
+        </span>
+    </span>
+  </p>
+    
   <div class="actions">
     <%= f.submit %>
   </div>

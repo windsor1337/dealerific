@@ -1,0 +1,122 @@
+
+    <% if !@photo_gallery then %>
+    <!-- slider -->
+    <div class="flex-container">
+		<div class="flexslider">
+		    <ul class="slides">
+            
+                <% @assets.each do |asset| %>
+                    <% if asset.photo.exists? then %>
+                        <li>
+                            
+                            <%= image_tag(asset.photo.url(:small),:alt => 'slide')%>
+                           
+                            <p class="flex-caption">
+                                <%= asset.description %>
+                            </p>
+                            
+                        </li>
+                    <% end %>
+                <% end %>
+                
+		    </ul>
+		</div>
+    </div>
+    <!-- /slider -->   
+    <% end %>
+    
+  <h2 class="pageTitle"><span><%= "#{@car.year} #{@car.make} #{@car.model}" %></span></h2>
+  <div class="shadow1box"><img src="/assets/mobile/shadow1.png" class="shadow1" alt="shadow"></div>
+
+    
+    
+    <!-- main content -->
+    <div data-role="content">
+    
+    
+    	
+	<h4><%= @car.title %></h4>
+    
+    <div class="ui-grid-a">
+    
+        <!-- column 1 -->
+        <div class="ui-block-a">
+            <div class="grid-box">
+            <p>
+                <b>Color:</b>
+                <%= @car.color %>
+            </p>
+            <p>
+                <b>Miles:</b>
+                <%= @car.miles %>
+            </p>
+            <p>
+                <b>Transmission:</b>
+                <%= @car.transmission %>
+            </p>
+
+            </div>
+         </div>
+         <!-- /column 1 -->
+         
+         <!-- column 2 -->
+        <div class="ui-block-b">
+            <div class="grid-box">
+            <p>
+              <b>Description:</b>
+              <%= @car.description %>
+            </p>
+            <p>
+              <b>List Price:</b>
+              <%= @car.list_price %>
+            </p>     
+        </div>
+        <!-- /column 2 -->
+     
+	</div>
+
+   
+    
+
+
+
+     
+</div><!-- /content -->
+
+<% if @photo_gallery then %>
+	<div data-role="header"  class="page-header">
+    <a href="index.html" data-icon="arrow-l" data-iconpos="notext" data-direction="reverse" data-rel="back" rel="external">Back</a>
+		<h1>First Gallery</h1>
+	</div>
+
+	<div data-role="content">	
+		
+		<ul class="gallery">
+            <% @assets.each do |asset| %>
+                    <% if asset.photo.exists? then %>
+                        <li>
+                            
+                            <%= image_tag(asset.photo.url(:small),:alt => 'slide')%>
+                            
+                        </li>
+                    <% end %>
+                <% end %>
+
+			
+		</ul>
+        
+        <p class="gal-description">Click an image to enlarge.</p>
+		
+	</div>
+<% end %>	
+
+<fieldset >
+    <% if !@photo_gallery then %>
+    <div ><a data-icon="arrow-r" href="<%= "/server/car/#{@car.id}?photo_gallery='yes'" %>" data-role="button" rel="external">All Car Photos</a></div>
+    <% end %>
+    <div >
+        <a data-icon="arrow-l" href="page-styles.html" data-role="button" data-direction="reverse"  rel="external" data-rel="back">Back</a>
+    </div>
+</fieldset>	
+    
+	

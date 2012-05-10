@@ -21,10 +21,10 @@
 
 <div data-role="page" data-cache="never">
 
-<script src="assets/js/back.js"></script>
+<%= javascript_include_tag "back.js" %>
 
 <!-- slider -->
-<script src="assets/slider/jquery.flexslider-min.js"></script>
+<%= javascript_include_tag "jquery.flexslider-min.js" %>
 <script type="text/javascript">
         $(document).ready(function() {
             $('.flexslider').flexslider({
@@ -54,7 +54,7 @@
 	<div data-role="footer">
 		<div data-role="navbar" class="custom-icons" data-grid="c"  data-position="fixed">
 			<ul>
-				<li><a href="http://bit.ly/yx2mXZ" id="footprints" data-icon="custom" data-theme="b">Directions</a></li>
+				<li><a href="http://maps.google.com/maps?q=<%= "#{@dealer.address1}, #{@dealer.zipcode}" %>" id="footprints" data-icon="custom" data-theme="b">Directions</a></li>
 				<li><a href="tel:<%= @dealer.sales_phone %>" id="cell" data-icon="custom" data-theme="b">Call Us</a></li>
 				<li><a href="portfolio.html" id="brush" data-icon="custom" data-theme="b" data-ajax="false">Portfolio</a></li>
 				<li><a href="twitter.html" id="twitter" data-icon="custom" data-theme="b" data-ajax="false">Tweets</a></li>

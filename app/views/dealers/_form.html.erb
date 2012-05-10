@@ -1,99 +1,174 @@
-<%= form_for @dealer , :html => { :multipart => true } do |f| %>
-  <% if @dealer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@dealer.errors.count, "error") %> prohibited this dealer from being saved:</h2>
 
-      <ul>
-      <% @dealer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<!-- Additional styles -->
+<%= stylesheet_link_tag "form" %>
+<%= stylesheet_link_tag "switches" %>
+
+        
+    <%= form_for @dealer , :html => { :multipart => true } do |f| %>
+      <% if @dealer.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@dealer.errors.count, "error") %> prohibited this dealer from being saved:</h2>
+
+          <ul>
+          <% @dealer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-<%if !@edit then %>  
-  <div class="field">
-    Login Information:<br/>
-    <%= f.text_field(:email, :placeholder => 'Contact Email Address') %>
-  </div>
-  <div>
-    <input name="password" type="password" placeholder="Password" size="25">
-  </div>
-  <div>
-    <input name="password_confirmation" type="password" placeholder="Password Confirmation" size="25">
-  </div>
-  
-  <br/><br/>
-  
-  <div class="field">
-    Contact Information:<br/>
-    <input name="first_name" type="text" placeholder="First Name" size="25">
-    <input name="last_name" type="text" placeholder="Last Name" size="25">
-  </div>
-  <div>
-    <input name="phone" type="text" placeholder="Contact Phone" size="25">
-  </div>
-<% end %>
+    <%if !@edit then %>  
+      <h3 class="thin underline">Login Information</h3>
+      
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:email, :placeholder => 'Contact Email Address', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the primary business contact email address.  It is also your dealer's user login.
+            </span>
+        </span>
+      </p>
+      
+      <p class="inline-large-label button-height">
+        <input name="password" type="password" placeholder="Password" size="25" class="input small-margin-right">
+      </p>
 
- 
-  <br/>
-  <br/>
-  
-  <div class="field">
-    Dealership Information:<br/>
-    <%= f.text_field(:name, :placeholder => 'Dealership Name') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:hours_of_operation, :placeholder => 'Hours of Operation') %>
-  </div>
-  <br/>
-  
-  <div class="field">
-    <%= f.label 'Address:' %><br />
-    <%= f.text_field(:address1, :placeholder => 'Address Line 1') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:address2, :placeholder => 'Address Line 2') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:city, :placeholder => 'City') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:state, :placeholder => 'State') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:zipcode, :placeholder => 'Zipcode') %>
-  </div>
-  <br/>
-  
-  <div class="field">
-    <%= f.label 'Contact Information:' %><br />
-    <%= f.text_field(:sales_phone, :placeholder => 'Sales Phone') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:service_phone, :placeholder => 'Service Phone') %>
-  </div>
-  
-  <div class="field">
-    <%= f.text_field(:website_url, :placeholder => 'Website URL') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:facebook, :placeholder => 'Facebook Page') %>
-  </div>
-  <div class="field">
-    <%= f.text_field(:twitter, :placeholder => 'Twitter Handle') %>
-  </div>
-  <br/>
-  
-  <div class="field">
-    <%= f.label 'Dealership Logo:' %><br />
-    <%= f.file_field :photo %>
-  </div>
-  <br/>
-  
-  <div class="actions">
-    <%= f.submit "", :type => :image, :src => "/assets/create_dealer.png"%>
-  </div>
-  <br/>
-  <br/>
-<% end %>
+      <p class="inline-large-label button-height">
+        <input name="password_confirmation" type="password" placeholder="Password Confirmation" size="25" class="input small-margin-right">
+      </p>
+      
+      
+      
+      
+      <h3 class="thin underline">User Information</h3>
+      
+      <p class="inline-large-label button-height">
+        <input name="first_name" type="text" placeholder="First Name" size="25" class="input small-margin-right">
+        <input name="last_name" type="text" placeholder="Last Name" size="25" class="input small-margin-right">
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the first and last name of the primary contact for the dealer.
+            </span>
+        </span>
+      </p>
+      
+      <p class="inline-large-label button-height">
+        <input name="phone" type="text" placeholder="Contact Phone" size="25" class="input small-margin-right">
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the primary business phone for your dealer.
+            </span>
+        </span>
+      </p>
+
+    <% end %>
+
+      <h3 class="thin underline">Dealership Information</h3>
+      
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:name, :placeholder => 'Dealership Name', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                The official name of the Dealership, this will be shown to the end user.
+            </span>
+        </span>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:hours_of_operation, :placeholder => 'Hours of Operation', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                The Dealership's hours of operation, this will be shown to the end user.
+            </span>
+        </span>
+      </p>
+      
+      
+      <h3 class="thin underline">Dealership Address
+      <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                The actual address of the dealership, this will be shown to the end user and also used for mapping.
+            </span>
+        </span>
+      </h3>
+      
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:address1, :placeholder => 'Address Line 1', :class => 'input small-margin-right') %>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:address2, :placeholder => 'Address Line 2', :class => 'input small-margin-right') %>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:city, :placeholder => 'City', :class => 'input small-margin-right') %>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:state, :placeholder => 'State', :class => 'input small-margin-right') %>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:zipcode, :placeholder => 'Zipcode', :class => 'input small-margin-right') %>
+      </p>
+      
+            
+      <h3 class="thin underline">Dealership Contact Information</h3>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:sales_phone, :placeholder => 'Sales Phone', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the number that users will dial from the webapp to speak to a salesperson.
+            </span>
+        </span>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:service_phone, :placeholder => 'Service Phone', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the number that users will dial from the webapp to speak to someone about billing or mechanical service.
+            </span>
+        </span>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:website_url, :placeholder => 'Website URL', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the url (i.e. http://dealer.com) of the dealership's primary website. It will we linked to from the mobile site.</span>
+        </span>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:facebook, :placeholder => 'Facebook Page', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                The dealership's facebook page, if any.
+            </span>
+        </span>
+      </p>
+      <p class="inline-large-label button-height">
+        <%= f.text_field(:twitter, :placeholder => 'Twitter Handle', :class => 'input small-margin-right') %>
+        <span class="info-spot">
+            <span class="icon-info-round"></span>
+            <span class="info-bubble">
+                This is the dealership's twitter handle, if any.
+            </span>
+        </span>
+      </p>
+      
+      <h3 class="thin underline">Dealership Logo</h3>
+        <%= f.file_field :photo %>
+      <br/><br/><br/> <br/><br/><br/>
+      
+      <div class="actions">
+        <%= f.submit "", :type => :image, :src => "/assets/create_dealer.png"%>
+      </div>
+      <br/>
+      <br/>
+    <% end %>
+
+

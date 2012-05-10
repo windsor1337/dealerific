@@ -12,6 +12,7 @@ Cars::Application.routes.draw do
   resources :dealers
   match 'server/dealer/:id/overview' => 'server#overview'
   match 'server/dealer/:id/cars' => 'server#cars_list'
+  match 'server/car/:id' => 'server#car_detail'
     
   # The priority is based upon order of creation:
   # first created -> highest priority.

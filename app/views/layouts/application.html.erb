@@ -89,20 +89,10 @@
 
 	<!-- Button to open/hide shortcuts -->
 	<a href="#" id="open-shortcuts"><span class="icon-thumbs"></span></a>
-    
-    
-    
-    
+
 
     <%= yield %>
     
-    
-    
-    
-    
-    
-
-	
 
 	<!-- Sidebar/drop-down menu -->
 	<section id="menu" role="complementary">
@@ -111,7 +101,16 @@
 		<div id="menu-content">
 
 			<header>
-				Administrator
+                <%
+                    if current_user.admin then
+                        @user_title = 'Administrator'
+                    elsif current_user.reseller then
+                        @user_title = 'Reseller'
+                    else
+                        @user_title = 'Dealership'
+                    end
+                %>
+				<%= @user_title %>
 			</header>
 
 			<div id="profile">

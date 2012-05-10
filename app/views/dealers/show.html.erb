@@ -12,9 +12,9 @@
             <div class="block-title blue-gradient glossy">
                 <h3><%= @dealer.name %></h3>
                 <div class="button-group absolute-right compact">
-                    <a href="#" class="button icon-pencil">Edit</a>
-                    <a href="#" class="button icon-gear with-tooltip" title="Other actions"></a>
-                    <a href="#" class="button icon-trash with-tooltip confirm" title="Delete"></a>
+                    <%= link_to('Edit', edit_dealer_path(@dealer), :class => 'button icon-pencil') %>
+                    <%= link_to '', @dealer, confirm: 'Are you sure?', method: :delete, :class => 'button icon-trash with-tooltip confirm' %>
+                    
                 </div>
             </div>
             <div class="columns">
@@ -73,55 +73,87 @@
         </div>
     </div>
 
-</section>
 
+    
 
-<h1>Listing cars</h1>
+		<hgroup id="main-title" class="thin">
+			<h1>Cars</h1>
+		</hgroup>
 
-<table>
-  <tr>
-    <th>Dealer</th>
-    <th>Reference code</th>
-    <th>Title</th>
-    <th>Make</th>
-    <th>Model</th>
-    <th>Year</th>
-    <th>Color</th>
-    <th>Transmission</th>
-    <th>Miles</th>
-    <th>List price</th>
-    <th>List date</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+		<div class="with-padding">
+        
+        <% if notice then %>
+            <p class="wrapped left-icon icon-info-round">
+                <%= notice %>
+            </p>
+        <% end %>
+        
+        <% if alert then %>
+            <p class="wrapped left-icon icon-info-round">
+                <%= alert %>
+            </p>
+        <% end %>
 
-<% @cars.each do |car| %>
-  <tr>
-    <td><%= car.dealer_id %></td>
-    <td><%= car.reference_code %></td>
-    <td><%= car.title %></td>
-    <td><%= car.make %></td>
-    <td><%= car.model %></td>
-    <td><%= car.year %></td>
-    <td><%= car.color %></td>
-    <td><%= car.transmission %></td>
-    <td><%= car.miles %></td>
-    <td><%= car.list_price %></td>
-    <td><%= car.list_date %></td>
-    <td><%= car.description %></td>
-    <td><%= link_to 'Show', car %></td>
-    <td><%= link_to 'Edit', edit_car_path(car) %></td>
-    <td><%= link_to 'Destroy', car, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+			<table class="table responsive-table" id="sorting-advanced">
+
+				<thead>
+					<tr>
+						<th scope="col">Car</th>
+                        <th scope="col" width="15%" class="align-center hide-on-mobile">Make,Model,Year</th>
+						<th scope="col" width="15%" class="align-center hide-on-mobile">Miles</th>
+						<th scope="col" width="20%" class="align-center hide-on-mobile-portrait">Price</th>
+						<th scope="col" width="10%" class="align-center">Actions</th>
+					</tr>
+				</thead>
+
+				<tfoot>
+					<tr>
+						<td colspan="6">
+							<%= @cars.count %> cars found
+						</td>
+					</tr>
+				</tfoot>
+
+				<tbody>
+                    <% @cars.each do |car| %>
+					<tr>
+						<td>
+                            <!-- Car Thumbnail -->
+                            <% @primaryasset = car.assets.find_by_primary true %>
+                            <% if @primaryasset && @primaryasset.photo.exists? then %>
+                                    <% @carthumb_url = @primaryasset.photo.url(:thumb)%>
+                            <% end %>
+                            <%= link_to image_tag(@carthumb_url), car_path(car) %>
+                        </td>
+                        <td><%= "#{car.year} #{car.make} #{car.model}" %></td>
+						<td><%= car.miles %></td>
+						<td><%= car.list_price %></td>
+                        
+						<td class="align-right vertical-center">
+							<span class="button-group compact">
+                                <%= link_to('Edit', edit_car_path(car), :class => 'button icon-pencil') %>
+                                <%= link_to '', car, confirm: 'Are you sure?', method: :delete, :class => 'button icon-trash with-tooltip confirm' %>
+                                
+							</span>
+						</td>					
+                    </tr>
+                    <% end %>
+                    
+					
+                </tbody>
+
+			</table>
+            <%= link_to 'Add Car', new_car_path(dealer_id: @dealer) %>
+        </div>
+        
+	</section>
+	<!-- End main content -->
+
 
 <br />
 
 
-<%= link_to 'Add Car', new_car_path(dealer_id: @dealer) %>
+
 
 <%= link_to 'Edit', edit_dealer_path(@dealer) %> |
 <%= link_to 'Back', dealers_path %>

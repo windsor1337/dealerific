@@ -1,6 +1,18 @@
-<h1>Editing car</h1>
+<section role="main" id="main">
 
-<%= render 'form' %>
+    <noscript class="message black-gradient simpler">Your browser does not support JavaScript! Some features won't work as expected...</noscript>
 
-<%= link_to 'Show', @car %> |
-<%= link_to 'Back', cars_path %>
+    <hgroup id="main-title" class="thin">
+        <h1>Editing Car</h1>
+    </hgroup>
+
+    <div class="with-padding">
+
+        <%= render 'form' %>
+        
+    </div>
+    
+</section>
+
+<%= link_to 'Show Vehicle', @car %> |
+<%= link_to 'Back to Dealer', dealer_path(@car.dealer) %>

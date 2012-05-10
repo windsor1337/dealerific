@@ -20,4 +20,16 @@ class ServerController < ApplicationController
             format.json { render :json => @dealer.to_json(:include => :cars) }
         end
     end
+    
+    def car_detail
+        @photo_gallery  = params[:photo_gallery]
+        @car = Car.find(params[:id])
+        @dealer = @car.dealer
+        @assets = @car.assets
+        
+        respond_to do |format|
+            format.html {render 'car_detail.html.erb' }
+            format.json { render :json => @car.to_json }
+        end
+    end
 end
